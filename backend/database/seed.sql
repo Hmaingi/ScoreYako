@@ -1,0 +1,3 @@
+-- Seed data intentionally left empty.
+-- Add your own organization, user, entity, and case data here.
+-- This app is ready for your own records without sample/demo content.

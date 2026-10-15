@@ -1,0 +1,4 @@
+﻿import CaseBoard from '../../components/CaseBoard';
+import { serverApiFetch } from '../../lib/server-api';
+async function load(path: string) { try { const result = await serverApiFetch(path); return result.ok ? (await result.json()).data : []; } catch { return []; } }
+export default async function CasesPage() { const [cases, users] = await Promise.all([load('/api/v1/cases'), load('/api/v1/cases/assignees')]); return <div className="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8"><header className="mb-7"><p className="eyebrow">Collection workflow</p><h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">Keep every case moving.</h1><p className="mt-2 text-slate-400">Set ownership, move a case through its stage and surface escalations before they stall.</p></header><CaseBoard initialCases={cases} users={users} /></div>; }

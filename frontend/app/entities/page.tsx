@@ -1,0 +1,5 @@
+﻿import EntityDirectory from '../../components/EntityDirectory';
+import { serverApiFetch } from '../../lib/server-api';
+type Entity = { id: string; legal_name: string; entity_type: string; phone?: string; email?: string; portfolio_id?: string; portfolio_name?: string; organization_name?: string; extra_data?: Record<string, unknown>; account_numbers?: string[]; total_outstanding?: number; created_at?: string; last_imported_at?: string };
+async function fetchEntities(): Promise<Entity[]> { try { const res = await serverApiFetch('/api/v1/entities'); return res.ok ? (await res.json()).data || [] : []; } catch { return []; } }
+export default async function EntitiesPage() { const entities = await fetchEntities(); return <div className="mx-auto max-w-6xl p-4 sm:p-6 lg:p-8"><header className="mb-7"><p className="eyebrow">Entity directory</p><h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl">Know who needs a conversation.</h1><p className="mt-2 text-slate-400">Search your portfolio and open an entity’s complete financial picture.</p></header><EntityDirectory entities={entities} /></div>; }
