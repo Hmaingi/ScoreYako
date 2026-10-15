@@ -11,9 +11,9 @@ Scoreyako is a financial relationship intelligence and action platform built for
 
 ## Repository structure
 
-- `backend/` Ã¢â‚¬â€ API server, database schema, migrations, and seed data
-- `frontend/` Ã¢â‚¬â€ Next.js dashboard app
-- `README.md` Ã¢â‚¬â€ setup and run instructions
+- `backend/`  API server, database schema, migrations, and seed data
+- `frontend/` Next.js dashboard app
+- `README.md`  setup and run instructions
 
 ## Database schema
 
